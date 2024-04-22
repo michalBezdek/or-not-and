@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sjednocení množin</title>
+</head>
+<body>
+    <h2>Sjednocení množin</h2>
+    <p>Zadej prvky množiny A (oddělené čárkou):</p>
+    <input type="text" id="mnozinaA">
+    <p>Zadej prvky množiny B (oddělené čárkou):</p>
+    <input type="text" id="mnozinaB">
+    <br><br>
+    <button onclick="sjednoceni()">Spočítej sjednocení množiny A a B</button>
+    
+    <script>
+
+        function sjednoceni() {
+            var mnozinaA = document.getElementById("mnozinaA").value.split(",");
+            var mnozinaB = document.getElementById("mnozinaB").value.split(",");
+
+           
+            var setA = new Set(mnozinaA.map(item => parseInt(item)));
+            var setB = new Set(mnozinaB.map(item => parseInt(item)));
+
+           
+            var vysledek = new Set([...setA, ...setB]);
+
+       
+            var vysledekArray = Array.from(vysledek).sort((a, b) => a - b);
+
+            alert("Sjednocení množiny A a B je: {" + vysledekArray.join(", ") + "}");
+        }
+    </script>
+</body>
+</html>
